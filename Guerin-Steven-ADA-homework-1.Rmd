@@ -1,0 +1,106 @@
+---
+title: "Guerin-Steven-ADA-homework-1"
+author: "Steven"
+date: "2/6/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Challenge 1
+
+``` {r challenge1, include=TRUE}
+library(stringr)
+
+quote<- ("There is grandeur in this view of life with its several powers having been originally breathed by the Creator into a few forms or into one and that whilst this planet has gone circling on according to the fixed law of gravity from so simple a beginning endless forms most beautiful and most wonderful have been and are being evolved")
+
+split_quote<-str_split(quote," ",n = Inf, simplify = FALSE)
+
+split_quote
+
+help(strsplit)
+
+split_quote2<-unlist(split_quote)
+
+every_fourth<- split_quote2[seq(4, length(split_quote2), 4)]
+
+every_fourth
+
+every_fourth2<-sort(every_fourth)
+
+every_fourth3<-rev(every_fourth2)
+
+every_fourth3
+```
+
+## Challenge 2
+
+```{r challenge 2, include=TRUE}
+
+oddnumbers<- seq(1,159,2)
+
+m1<- matrix(oddnumbers, nrow = 8, ncol = 10)
+
+c2p2<-m1[4,2]
+c2p2
+
+c2p3<-m1[5:7,]
+c2p3
+
+c2p4<-m1[3:6,4:9]
+c2p4
+
+class(c2p4)
+
+mode(c2p4)
+
+```
+
+## Challenge 3
+
+```{r challenge 3, include=TRUE}
+
+a <- array(data = 400:1, dim = c(5, 5, 4, 4))
+
+a[1, 1, 1, 2]
+
+a[2, 3, 2, ]
+
+a[1:5, 1:5, 3, 3]
+```
+
+## Challenge 4
+
+```{r challenge 4, include=TRUE}
+library(dplyr)
+
+Superfamily_Lemuroidea<-c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+Superfamily_Lorisoidea<-c("Lorisidae", "Galagidae")
+Infraorder_Lemuriformes<-Superfamily_Lemuroidea
+Infraorder_Lorisiformes<-Superfamily_Lorisoidea
+Suborder_Strepsirhini<-list(Infraorder_Lorisiformes,Infraorder_Lemuriformes)
+
+Superfamily_Cercopithecoidea<-("Cercopithecidae")
+Superfamily_Hominoidea<-c("Hylobatidae", "Hominidae")
+Superfamily_Ceboidea<-c("Cebidae", "Atelidae", "Pitheciidae")
+Superfamily_Tarsioidea<-("Tarsiidae")
+Parvorder_Catarrhini<-list(Superfamily_Hominoidea,Superfamily_Cercopithecoidea)
+Parvorder_Platyrrhini<-Superfamily_Ceboidea
+Infraorder_Simiiformes<-list(Parvorder_Platyrrhini,Parvorder_Catarrhini)
+Infraorder_Tarsiiformes<-Superfamily_Tarsioidea
+Suborder_Haplorhini<-list(Infraorder_Tarsiiformes,Infraorder_Simiiformes)
+
+Primates<-list(Suborder_Strepsirhini,Suborder_Haplorhini)
+
+nwm<-Primates[[2]][[2]][1]
+nwm
+
+class(nwm)
+
+mode(nwm)
+
+Primates[[2]][[1]]
+
+```
