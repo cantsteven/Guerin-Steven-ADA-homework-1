@@ -1,7 +1,7 @@
 ---
 title: "Guerin-Steven-ADA-homework-1"
 author: "Steven"
-date: "2/6/2020"
+date: "2/11/2020"
 output: html_document
 ---
 
@@ -76,20 +76,20 @@ a[1:5, 1:5, 3, 3]
 ```{r challenge 4, include=TRUE}
 library(dplyr)
 
-Superfamily_Lemuroidea<-c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
-Superfamily_Lorisoidea<-c("Lorisidae", "Galagidae")
-Infraorder_Lemuriformes<-Superfamily_Lemuroidea
-Infraorder_Lorisiformes<-Superfamily_Lorisoidea
+Superfamily_Lemuroidea<-list("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
+Superfamily_Lorisoidea<-list("Lorisidae", "Galagidae")
+Infraorder_Lemuriformes<-list(Superfamily_Lemuroidea)
+Infraorder_Lorisiformes<-list(Superfamily_Lorisoidea)
 Suborder_Strepsirhini<-list(Infraorder_Lorisiformes,Infraorder_Lemuriformes)
 
-Superfamily_Cercopithecoidea<-("Cercopithecidae")
-Superfamily_Hominoidea<-c("Hylobatidae", "Hominidae")
-Superfamily_Ceboidea<-c("Cebidae", "Atelidae", "Pitheciidae")
-Superfamily_Tarsioidea<-("Tarsiidae")
+Superfamily_Cercopithecoidea<-list("Cercopithecidae")
+Superfamily_Hominoidea<-list("Hylobatidae", "Hominidae")
+Superfamily_Ceboidea<-list("Cebidae", "Atelidae", "Pitheciidae")
+Superfamily_Tarsioidea<-list("Tarsiidae")
 Parvorder_Catarrhini<-list(Superfamily_Hominoidea,Superfamily_Cercopithecoidea)
-Parvorder_Platyrrhini<-Superfamily_Ceboidea
+Parvorder_Platyrrhini<-list(Superfamily_Ceboidea)
 Infraorder_Simiiformes<-list(Parvorder_Platyrrhini,Parvorder_Catarrhini)
-Infraorder_Tarsiiformes<-Superfamily_Tarsioidea
+Infraorder_Tarsiiformes<-list(Superfamily_Tarsioidea)
 Suborder_Haplorhini<-list(Infraorder_Tarsiiformes,Infraorder_Simiiformes)
 
 Primates<-list(Suborder_Strepsirhini,Suborder_Haplorhini)
@@ -101,6 +101,7 @@ class(nwm)
 
 mode(nwm)
 
-Primates[[2]][[1]]
+names(Superfamily_Tarsioidea)<-"tarisers"
 
+Superfamily_Tarsioidea$tarisers
 ```

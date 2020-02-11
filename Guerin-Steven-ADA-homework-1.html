@@ -364,7 +364,7 @@ summary {
 
 <h1 class="title toc-ignore">Guerin-Steven-ADA-homework-1</h1>
 <h4 class="author">Steven</h4>
-<h4 class="date">2/6/2020</h4>
+<h4 class="date">2/11/2020</h4>
 
 </div>
 
@@ -464,20 +464,20 @@ a[1, 1, 1, 2]</code></pre>
 <pre><code>## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
-<pre class="r"><code>Superfamily_Lemuroidea&lt;-c(&quot;Cheirogaleidae&quot;, &quot;Lepilemuridae&quot;, &quot;Indriidae&quot;, &quot;Lemuridae&quot;, &quot;Daubentoniidae&quot;)
-Superfamily_Lorisoidea&lt;-c(&quot;Lorisidae&quot;, &quot;Galagidae&quot;)
-Infraorder_Lemuriformes&lt;-Superfamily_Lemuroidea
-Infraorder_Lorisiformes&lt;-Superfamily_Lorisoidea
+<pre class="r"><code>Superfamily_Lemuroidea&lt;-list(&quot;Cheirogaleidae&quot;, &quot;Lepilemuridae&quot;, &quot;Indriidae&quot;, &quot;Lemuridae&quot;, &quot;Daubentoniidae&quot;)
+Superfamily_Lorisoidea&lt;-list(&quot;Lorisidae&quot;, &quot;Galagidae&quot;)
+Infraorder_Lemuriformes&lt;-list(Superfamily_Lemuroidea)
+Infraorder_Lorisiformes&lt;-list(Superfamily_Lorisoidea)
 Suborder_Strepsirhini&lt;-list(Infraorder_Lorisiformes,Infraorder_Lemuriformes)
 
-Superfamily_Cercopithecoidea&lt;-(&quot;Cercopithecidae&quot;)
-Superfamily_Hominoidea&lt;-c(&quot;Hylobatidae&quot;, &quot;Hominidae&quot;)
-Superfamily_Ceboidea&lt;-c(&quot;Cebidae&quot;, &quot;Atelidae&quot;, &quot;Pitheciidae&quot;)
-Superfamily_Tarsioidea&lt;-(&quot;Tarsiidae&quot;)
+Superfamily_Cercopithecoidea&lt;-list(&quot;Cercopithecidae&quot;)
+Superfamily_Hominoidea&lt;-list(&quot;Hylobatidae&quot;, &quot;Hominidae&quot;)
+Superfamily_Ceboidea&lt;-list(&quot;Cebidae&quot;, &quot;Atelidae&quot;, &quot;Pitheciidae&quot;)
+Superfamily_Tarsioidea&lt;-list(&quot;Tarsiidae&quot;)
 Parvorder_Catarrhini&lt;-list(Superfamily_Hominoidea,Superfamily_Cercopithecoidea)
-Parvorder_Platyrrhini&lt;-Superfamily_Ceboidea
+Parvorder_Platyrrhini&lt;-list(Superfamily_Ceboidea)
 Infraorder_Simiiformes&lt;-list(Parvorder_Platyrrhini,Parvorder_Catarrhini)
-Infraorder_Tarsiiformes&lt;-Superfamily_Tarsioidea
+Infraorder_Tarsiiformes&lt;-list(Superfamily_Tarsioidea)
 Suborder_Haplorhini&lt;-list(Infraorder_Tarsiiformes,Infraorder_Simiiformes)
 
 Primates&lt;-list(Suborder_Strepsirhini,Suborder_Haplorhini)
@@ -485,13 +485,23 @@ Primates&lt;-list(Suborder_Strepsirhini,Suborder_Haplorhini)
 nwm&lt;-Primates[[2]][[2]][1]
 nwm</code></pre>
 <pre><code>## [[1]]
-## [1] &quot;Cebidae&quot;     &quot;Atelidae&quot;    &quot;Pitheciidae&quot;</code></pre>
+## [[1]][[1]]
+## [[1]][[1]][[1]]
+## [1] &quot;Cebidae&quot;
+## 
+## [[1]][[1]][[2]]
+## [1] &quot;Atelidae&quot;
+## 
+## [[1]][[1]][[3]]
+## [1] &quot;Pitheciidae&quot;</code></pre>
 <pre class="r"><code>class(nwm)</code></pre>
 <pre><code>## [1] &quot;list&quot;</code></pre>
 <pre class="r"><code>mode(nwm)</code></pre>
 <pre><code>## [1] &quot;list&quot;</code></pre>
-<pre class="r"><code>Primates$Suborder_Haplorhini</code></pre>
-<pre><code>## NULL</code></pre>
+<pre class="r"><code>names(Superfamily_Tarsioidea)&lt;-&quot;tarisers&quot;
+
+Superfamily_Tarsioidea$tarisers</code></pre>
+<pre><code>## [1] &quot;Tarsiidae&quot;</code></pre>
 </div>
 
 
